@@ -30,9 +30,9 @@ public class PlayerStatusBarControl : MonoBehaviour
 		_rectHealth.SetSizeWithCurrentAnchors( RectTransform.Axis.Horizontal, _maxHealth); 
 	}
     
-	public void SetHealth(float enemyHealth, float enemyMaxHealth)
+	public void SetHealth(float playerHealth, float playerMaxHealth)
 	{
-		Health = enemyHealth * _maxHealth / enemyMaxHealth;  
+		Health = playerHealth * _maxHealth / playerMaxHealth;  
 	}
 
 	public void SetText(string text)
