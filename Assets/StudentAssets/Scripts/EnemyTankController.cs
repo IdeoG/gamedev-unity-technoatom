@@ -49,6 +49,7 @@ public class EnemyTankController : MonoBehaviour
                     
                     
                     var shell = Instantiate(_shellPrefab, _barrel.position, _barrel.rotation);
+                    shell.transform.GetComponent<Shell>().SetParentTag(tag);
                     shell.AddForce(shell.transform.forward * 700);
                 }
             }
