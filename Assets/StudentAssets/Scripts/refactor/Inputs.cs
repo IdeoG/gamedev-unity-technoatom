@@ -13,12 +13,14 @@ public class Inputs : MonoBehaviour
 
     public IObservable<Vector2> Movement { get; private set; }
     public IObservable<Vector2> MouseLook { get; private set; }
-    public IObservable<Unit> Fire { get; private set; }
+    public IObservable<Vector3> MousePosition { get; private set; }
+    public IObservable<Unit> FireButton { get; private set; }
 
+    // TODO: Переосмыслить название входа для Передвижения и для ведения Огня
     private void Awake()
     {
         Instance = this;
-
+        
         Movement = this.FixedUpdateAsObservable()
             .Select(_ =>
             {
@@ -27,7 +29,7 @@ public class Inputs : MonoBehaviour
                 return new Vector2(x, y).normalized;
             });
 
-        Fire = this.UpdateAsObservable()
+        FireButton = this.UpdateAsObservable()
             .Where(_ => Input.GetMouseButtonDown(0));
 
         MouseLook = this.UpdateAsObservable()
@@ -37,5 +39,8 @@ public class Inputs : MonoBehaviour
                 var y = Input.GetAxis("Mouse Y");
                 return new Vector2(x, y).normalized;
             });
+
+        MousePosition = this.UpdateAsObservable()
+            .Select(_ => Input.mousePosition);
     }
 }

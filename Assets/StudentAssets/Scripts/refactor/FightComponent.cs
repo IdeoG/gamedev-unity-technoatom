@@ -23,7 +23,7 @@ public class FightComponent : MonoBehaviour
     {
         var inputs = Inputs.Instance;
 
-        inputs.Fire
+        inputs.FireButton
             .Subscribe(_ => Attack())
             .AddTo(this);
     }
