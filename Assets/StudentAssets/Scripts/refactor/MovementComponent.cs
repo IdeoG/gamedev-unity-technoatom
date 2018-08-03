@@ -24,8 +24,8 @@ public class MovementComponent : MonoBehaviour
     {
         var inputs = Inputs.Instance;
 
-        // TODO: Поменять Movement на отдельные Move и Turn
-        inputs.Movement
+        // TODO: Поменять MovementStick на отдельные Move и Turn
+        inputs.MovementStick
             .Where(v2 => v2 != Vector2.zero)
             .Subscribe(inputMovement =>
             {
