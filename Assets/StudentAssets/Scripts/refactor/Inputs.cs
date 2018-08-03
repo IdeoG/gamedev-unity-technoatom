@@ -3,6 +3,10 @@ using UniRx;
 using UniRx.Triggers;
 using UnityEngine;
 
+/**
+ * Inputs
+ * Компонента, которая отвечает за входы с клавиатуры и мыши
+ */
 public class Inputs : MonoBehaviour
 {
     public static Inputs Instance { get; private set; }
@@ -20,7 +24,6 @@ public class Inputs : MonoBehaviour
             {
                 var x = Input.GetAxis("Vertical");
                 var y = Input.GetAxis("Horizontal");
-                Debug.Log($"Input.GetAxis: x = {x}, y = {y}");
                 return new Vector2(x, y).normalized;
             });
 
